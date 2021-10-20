@@ -1,0 +1,20 @@
+---
+
+eprints_version: "3.4.3"
+mysql_root_password: "ldo8v6rtdg$£es"
+ansible_fqdn: "researchdata.test"
+
+eprints_dependencies:
+  - mariadb-server
+  - mariadb
+  - git
+  - nano
+  # for XML::LibXSLT install via cpanm
+  - gcc
+  - libxml2-devel
+  - libxslt-devel
+
+
+eprints_cpanm_modules:
+  - TeX::Encode
+  - XML::LibXSLT

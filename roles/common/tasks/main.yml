@@ -1,0 +1,26 @@
+---
+
+- name: Update all packages to their latest version
+  dnf:
+    name: "*"
+    state: latest
+
+- name: Installing EPEL repositories
+  yum:
+    name: "epel-release"
+    state: latest
+
+- name: Installing DNF core plugins
+  yum:
+    name: "dnf-plugins-core"
+    state: latest
+
+- name: Enabling powertools repository (Centos8)
+  command: yum config-manager --set-enabled powertools
+  args:
+    warn: no
+  notify: yum-clean-metadata
+
+
+  
+

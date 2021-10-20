@@ -1,0 +1,37 @@
+---
+
+- name: Installing EPrints dependencies
+  yum:
+    name: "{{ eprints_dependencies }}"
+    state: latest
+
+- name: Adding EPrints repository
+  yum_repository:
+    name: eprints
+    description: EPrints Fepository Software
+    baseurl: http://rpm.eprints.org/eprints3.4
+    enabled: yes
+    gpgcheck: no
+  notify: yum-clean-metadata
+
+- name: Installing EPrints
+  yum:
+    name: eprints
+    state: latest
+
+- name: Removing LibXSLT
+  file:
+    state: absent
+    path: /usr/lib64/perl5/vendor_perl/auto/XML/LibXSLT/
+
+- name: Installing cpanminus
+  yum:
+    name: perl-App-cpanminus
+    state: latest
+
+- name: Install additional perl dependencies from cpanminus
+  community.general.cpanm:
+    name: "{{ item }}"
+    notest: true
+  loop: "{{ eprints_cpanm_modules }}"
+
