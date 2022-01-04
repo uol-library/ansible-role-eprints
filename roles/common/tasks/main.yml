@@ -19,6 +19,19 @@
   command: yum config-manager --set-enabled powertools
   args:
     warn: no
+  when:
+    - ansible_facts['distribution'] == "CentOS"
+    - ansible_facts['distribution_major_version'] == "8"
+  notify: yum-clean-metadata
+
+- name: Enabling CodeReady builder repository (RHEL8)
+  command: subscription-manager repos --enable codeready-builder-for-rhel-8-x86_64-rpms
+  args:
+    warn: no
+  when:
+    - ansible_facts['distribution'] == "RedHat"
+    - ansible_facts['distribution_major_version'] == "8"
+    - ansible_facts['architecture'] == "x86_64"
   notify: yum-clean-metadata
 
 

@@ -1,7 +1,7 @@
 EPrints ansible role
 ====================
 
-This repository contains an ansible [role](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html) which installs [EPrints](https://www.eprints.org) on a CentOS8 based host.
+This repository contains an ansible [role](https://docs.ansible.com/ansible/latest/user_guide/playbooks_reuse_roles.html) which installs [EPrints](https://www.eprints.org) on a Rocky Linux 8 based host.
 
 Testing
 -------
