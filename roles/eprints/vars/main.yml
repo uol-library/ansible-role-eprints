@@ -1,8 +1,8 @@
 ---
 
 eprints_version: "3.4.3"
-mysql_root_password: "ldo8v6rtdg$£es"
-ansible_fqdn: "researchdata.test"
+mysql_root_password: ""
+ansible_fqdn: ""
 
 eprints_dependencies:
   - mariadb-server
